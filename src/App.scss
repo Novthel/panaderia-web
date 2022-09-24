@@ -1,0 +1,13 @@
+@use "./assets/sass/components";
+@use "./assets/sass/mixin" as *;
+
+.sec-header {
+    @include flex(center,center);
+    padding: 3rem;
+    height: 10vh;
+    border-bottom: 1px solid red;
+    .nav-logo img {
+        max-width: 6rem;
+        padding: 2rem;
+    }
+}

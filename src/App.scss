@@ -1,13 +1,231 @@
 @use "./assets/sass/components";
 @use "./assets/sass/mixin" as *;
+@use "./assets/sass/variables" as *;
 
 .sec-header {
     @include flex(center,center);
-    padding: 3rem;
-    height: 10vh;
-    border-bottom: 1px solid red;
-    .nav-logo img {
-        max-width: 6rem;
-        padding: 2rem;
+    background-color: $color-bg-principal;
+    padding: 1rem;
+    height: 11rem;
+    border-bottom: 0.2rem solid $color-border-nav;
+
+    .nav-menu {
+        background-color: $color-bg-principal;
+        left: 100%;
+        transition: left 0.3s;
+        li {
+            a {
+                color: $color-text-menu; 
+                &:hover {
+                    color: $color-border-nav;
+                }
+            }   
+        }
     }
+
+    .nav-logo img {
+        max-width: 7rem;
+        border-radius: 50%;
+        border: 0.1rem solid $color-border-nav;
+        filter: opacity(0.9);
+    }
+    .hamb{
+        display: none;
+    }
+    .show {
+        left: 0;
+    }
+}
+
+
+.sec-carousel {
+    margin-top: 3rem;
+    .ver-menu {
+        @include flex(center,center);
+        margin: 2rem;
+        .boton {
+            background-color: $color-text-menu;
+            color: $color-text ;
+        }  
+    }
+}
+.sec-info {
+    margin: 4rem 0;
+    .titulo {
+        @include flex(center,center);
+        padding: 1rem;
+        color:$color-text-menu;
+        font-size: 1.7rem;
+    }
+    .info {
+        @include flex(center,center);
+        flex-wrap: wrap;
+        height: 45vh;
+        gap: 2rem;
+        .info-img {
+            max-width: 25rem; 
+        }
+        .info-text {
+            max-width: 25rem; 
+        }
+    }
+}
+
+.sec-footer {
+    min-width: 100%;
+    background-color: $color-bg-footer;
+    color: $color-text;
+    .footer-info {
+        display: grid;
+        padding: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
+        place-items: center;
+        gap: 2rem;
+        font-size: 0.9rem;
+       
+        .footer-logo {
+            max-width: 9rem;
+            border-radius: 50%;
+            opacity: 0,1;
+        }
+    }
+    .copyrigth {
+        @include flex(center,center);
+        font-size: 0.7rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sec-header {
+        padding: 2rem;
+        .nav-menu {
+            li {
+                a {
+                    padding-right: 1rem;
+                    font-size: 1rem;
+                }   
+            }
+        }
+    }
+    .sec-info {
+        .info {
+            height: 55vh;
+            .info-img {
+                max-width: 22rem; 
+            }
+            .info-text {
+                max-width: 17rem; 
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .sec-footer {
+        .footer-info {
+            grid-template-columns: repeat(auto-fill, minmax(14rem,1fr));
+            font-size: 0.7rem;
+           
+            .footer-logo {
+                max-width: 7rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 767.98px) { 
+
+    .sec-header {
+        justify-content: space-between;
+        position: fixed;
+        height: 6rem;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        z-index: 1;
+        .nav-menu {
+            flex-direction: column;
+            position: fixed;
+            font-size: 1.4rem;
+            padding: 0;
+            top: 6rem;
+            gap: 0.8rem;
+            min-width: 100%;
+            min-height: calc(100% - 6rem);
+            padding-top: 3rem;
+            z-index: 1;
+        }
+
+        .nav-menu-2 {
+            top: 18rem;
+            padding: 0;
+        }
+    
+        .nav-logo img {
+            max-width: 3rem;
+        }
+        .hamb{
+            font-size: 2.1rem;
+            background: none;
+            color: $color-text-menu;
+            padding-right: 1rem;
+            border: none;
+            display: block;
+            &:hover {
+                font-size: 2.3rem; 
+                color: $color-border-nav;
+            }
+        }
+    }
+
+    .sec-carousel {
+        margin-top: 10rem;
+    }
+
+    .sec-info {
+        margin: 2rem 0;
+        .info {
+            height: 70vh;
+            .info-img {
+                max-width: 17rem; 
+            }
+            .info-text {
+                max-width: 13rem; 
+                font-size: 0.7rem;
+            }
+        }
+    }
+    .sec-footer {
+        .footer-info {
+            grid-template-columns: repeat(auto-fill, minmax(12rem,1fr));
+            font-size: 0.7rem;
+           
+            .footer-logo {
+                max-width: 7rem;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 575.98px) { 
+    .sec-carousel {
+        margin-top: 10rem;
+    }
+    .sec-info {
+        margin: 2rem 0;
+        .info {
+            height: 60vh;
+            gap: 0.1rem;
+            .info-img {
+                max-width: 19rem; 
+            }
+            .info-text {
+                max-width: 17rem; 
+                font-size: 0.7rem;
+            }
+        }
+    }
+    
+    
 }

@@ -4,8 +4,30 @@
     align-items: center;
     list-style: none;
     li {
-        padding-right: 1rem;
-        
+        a {
+            padding-right: 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+        }   
     }
-    
+}
+
+.boton {
+    padding: 0.4rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.list {
+    display: block;
+    list-style: none;
+    li {
+        i {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }   
+    }
 }

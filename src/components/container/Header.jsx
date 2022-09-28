@@ -12,7 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className='container'>
+        <>
             <nav className='sec-header'>
                 <ul className={`nav-menu ${ showMenu ? 'show ':' none' }`} >
                     <li><Link to='/'  onClick={ toggleMenu } >Inicio</Link></li>
@@ -25,11 +25,11 @@ const Header = () => {
                 <ul className={`nav-menu nav-menu-2 ${ showMenu ? 'show ':' none' }`}>
                     <li><Link to='/menu'  onClick={ toggleMenu } >Menu</Link></li>
                     <li><Link to='/login'  onClick={ toggleMenu } >Login</Link></li>
-                    <li><Link to='/resistro'  onClick={ toggleMenu } >Registro</Link></li>
+                    <li><Link to='/registro'  onClick={ toggleMenu } >Registro</Link></li>
                 </ul> 
                 <button className='hamb' onClick={ toggleMenu } ><i className="bi bi-list"></i></button>  
             </nav>
-        </div>
+        </>
     );
 }
 

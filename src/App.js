@@ -5,6 +5,8 @@ import Header from './components/container/Header';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import About from './pages/About';
+import Menu from './pages/Menu';
+import ProductDetails from './components/container/ProductDetails';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route path='/info' element={ <About /> } />
           <Route path='/login' element={ <LoginPage /> } />
           <Route path='/registro' element={ <RegisterPage /> } />
+          <Route path='/menu' element={ <Menu /> } />
+          <Route path='/producto/:id' element={ <ProductDetails /> } />
       </Routes>
         
     </BrowserRouter>

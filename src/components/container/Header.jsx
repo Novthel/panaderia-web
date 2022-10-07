@@ -8,7 +8,6 @@ const Header = () => {
 
     const toggleMenu =()=> {
         setShowMenu(!showMenu)
-        console.log('hola')
     }
 
     return (

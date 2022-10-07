@@ -45,24 +45,26 @@ const FormRegister = () => {
 
                     {({ isSubmitting }) => (
                         <Form>
-                            <div className='form-group px-5'>  
+                            <div className='form-group'>  
                                 <Field id="name" className='form-field' type="text" name="name" placeholder="Name" />
                                 <ErrorMessage name="name" component='div'  className='form-msg' />
                             </div>
-                            <div className='form-group px-5'>   
+                            <div className='form-group'>   
                                 <Field id="lastname" className='form-field' type="text" name="lastname" placeholder="Lastname" />
                                 <ErrorMessage name="lastname" component='div'  className='form-msg' />
                             </div>
-                            <div className='form-group px-5'>   
+                            <div className='form-group'>   
                                 <Field id="email" className='form-field' type="email" name="email" placeholder="Email" />
                                 <ErrorMessage name="email" component='div'  className='form-msg' />
                             </div>
-                            <div className='form-group px-5'>
+                            <div className='form-group'>
                                 <Field id="password" className='form-field' type="password" name="password" placeholder="Password" />
                                 <ErrorMessage name="password" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group py-3'>
-                                <button type="submit" className='boton'>Registrate</button>
+                                <div className='btn-register'>
+                                    <button type="submit" className='boton'>Registrate</button>
+                                </div>
                                 { isSubmitting ? (<p>Login your credentials ...</p>) : null }
                             </div>
                             <div className='text-msg'>

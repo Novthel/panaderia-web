@@ -14,21 +14,21 @@ const CarouselMenu = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={ pan } height={500} className="d-block w-100" alt='img-pan' />
+                        <img src={ pan } height={460} className="d-block w-100" alt='img-pan' />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>PANES</h5>
                             <p> Disfruta de nuestra seleccion de Panes Tradicionales - Ornamentales Y Estilo Moderno</p>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={ galletas } height={500} className="d-block w-100" alt='img-galletas'/>
+                        <img src={ galletas } height={460} className="d-block w-100" alt='img-galletas'/>
                         <div className="carousel-caption d-none d-md-block">
                             <h5>GALLETAS</h5>
                             <p>Disfruta de todos nuestro productos en Galletas. Horneadas - Artesanales - Caseras - Fechas especiales</p>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={ postres } height={500} className="d-block w-100" alt="mg-postres"/>
+                        <img src={ postres } height={460} className="d-block w-100" alt="mg-postres"/>
                         <div className="carousel-caption d-none d-md-block">
                             <h5>POSTRES</h5>
                             <p>Tres leche - Frutas - Flanes - Pasteles para eventos</p>

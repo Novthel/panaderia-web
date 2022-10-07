@@ -1,0 +1,115 @@
+[
+    {
+        "id": 1,
+        "nameProduct": "Pan de queso",
+        "description": "Pan aliñado de una contextura muy suave relleno de queso doble crema fundido.",
+        "price": 8000,
+        "url":"../../assets/media/img/productos/pan-de-queso.jpg",
+        "category": "panes"
+    },
+    {
+        "id": 2,
+        "nameProduct": "Frances Pequeño",
+        "description": "Pan de una cubierta crocante y tostadita con un aliño blanco y suave en su interior, la combinación entre el crunch y la suavidad hacen de este pan el favorito de muchos.",
+        "price": 500,
+        "url":"./assets/media/img/productos/frances-pequeño.jpg",
+        "category": "panes"
+    },
+    {
+        "id": 3,
+        "nameProduct": "Pan Rollo",
+        "description": "Deliciosas capas de hojaldre una sobre otra. Cómelo quitando una por una y sintiendo el crunch y el buen sabor de nuestro producto.",
+        "price": 500,
+        "url":"./assets/media/img/productos/Pan-Rollo.jpg",
+        "category": "panes"
+    },
+    {
+        "id": 4,
+        "nameProduct": "Baguette Queso Paipa",
+        "description": "La mezcla de sabores de nuestra tierra con los sabores más tradicionales Europeos. Pan Baguette elaborado con masas madres aprtando sabores y aromas mezclado con queso Paipa, uno de los quesos icónicos de nuestra tierra.",
+        "price": 1500,
+        "url":"./assets/media/img/productos/Baguette-Queso-Paipa.jpg",
+        "category": "panes"
+    },
+    {
+        "id": 5,
+        "nameProduct": "Pan Hamburguesa",
+        "description": "Tostado o no, haz de tus hamburguesas una experiencia sin igual.",
+        "price": 800,
+        "url":"./assets/media/img/productos/Pan-Hamburguesa.jpg",
+        "category": "panes"
+    },
+    {
+        "id": 6,
+        "nameProduct": "Avenas con Pasas",
+        "description": "Disfruta de este clasico de la reposeria europea y americana. Nutritivas y para toda ocasion.",
+        "price": 1000,
+        "url":"./assets/media/img/productos/galleta-avena-con-pasas.jpg",
+        "category": "galletas"
+    },
+    {
+        "id": 7,
+        "nameProduct": "Mantequilla",
+        "description": "Las galletas de mantequilla conocida como la madre de todas las galletas. Disfruta de este producto Imprescindible para toda ocasion. ",
+        "price": 3000,
+        "url":"./assets/media/img/productos/Mantequilla.jpg",
+        "category": "galletas"
+    },
+    {
+        "id": 8,
+        "nameProduct": "Chocolate",
+        "description": "Elaboradas con cacao, muy ricas y perfectas para acompañar con tu bebida favorita",
+        "price": 700,
+        "url":"./assets/media/img/productos/Chocolate.jpg",
+        "category": "galletas"
+    },
+    {
+        "id": 9,
+        "nameProduct": "Hallowen-Jengibre",
+        "description": "El gengibre le da un sabor especial a las galletas y recuerda las propiedades del jengibre son innumerables. A disfrutar",
+        "price": 400,
+        "url":"./assets/media/img/productos/hallowen-jengibre.jpg",
+        "category": "galletas"
+    },
+    {
+        "id": 10,
+        "nameProduct": "Navideñas con Leche Condensada",
+        "description": "Disfruta de estas galletas clasicas navideñas y haz un viaje a tu infancia.",
+        "price": 500,
+        "url":"./assets/media/img/productos/Galletas-Navideñas-con-Leche-Condensada.jpg",
+        "category": "galletas"
+    },
+    {
+        "id": 11,
+        "nameProduct": "Pastel de Chocolate",
+        "description": "Esta será la mejor tarta de chocolate que hayas probado. Entre sus ingredientes, además de cacao, lleva café y una crema agria que le da un toque exquisito.",
+        "price": 45000,
+        "url":"./assets/media/img/productos/pastel-de-chocolate.jpg",
+        "category": "postres"
+    },
+    {
+        "id": 12,
+        "nameProduct": "Cupcakes - Pudincitos",
+        "description": "Disfruta de estos deliciosos Cupcakes de vainilla, solo o acompañado no podras comer solo uno.",
+        "price": 1000,
+        "url":"./assets/media/img/productos/pudincitos.jpg",
+        "category": "postres"
+    },
+    {
+        "id": 13,
+        "nameProduct": "Brownie de chocolate y helado de vainilla",
+        "description": "No podía faltar entre nuestros productos el famoso brownie de chocolate. Receta acompañada con una deliciosa bola de helado de vainilla, plato sencillo y exquisito para los amantes del chocolate en este caso.",
+        "price": 5000,
+        "url":"./assets/media/img/productos/Brownie-de-chocolate-y-helado-de-vainilla.jpg",
+        "category": "postres"
+    },
+    {
+        "id": 14,
+        "nameProduct": "Postres Tres Leches",
+        "description": "Disfruta de este Postre hecho con crema, leche condensada y leche evaporada. recubierta con una deliciosa salsa de frutos rojos.",
+        "price": 7000,
+        "url":"./assets/media/img/productos/postres-tres-leches.jpg",
+        "category": "postres"
+    }
+]
+

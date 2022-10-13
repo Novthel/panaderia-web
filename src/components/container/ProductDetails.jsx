@@ -3,7 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import menu  from '../../menu.json';
 import imagen from '../../assets/media/img/productos/Chocolate.jpg';
 
-
+/**
+ * function ProductDetails receives the product id via queryparams and displays its detailed information
+ * @returns a view of detailed product information (name, description, price, add product button)
+ */
 
 const ProductDetails = () => {
 

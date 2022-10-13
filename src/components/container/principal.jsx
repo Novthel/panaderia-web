@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import CarouselMenu from '../pure/CarouselMenu';
 import Info from '../pure/Info';
 
-
+/**
+ * 
+ * @returns render the main view of the page
+ */
 
 const Principal = () => {
     return (

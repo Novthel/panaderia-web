@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/media/img/logo-panaderia.png';
 
+/**
+ * 
+ * @returns render the view of the navigation menus and the logo
+ */
+
 const Header = () => {
 
     const [showMenu, setShowMenu] = useState(false);

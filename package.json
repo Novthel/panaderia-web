@@ -20,6 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "docs:build": "documentation build src/** -f html --github -o docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

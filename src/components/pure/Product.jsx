@@ -2,6 +2,13 @@ import React from 'react';
 import imagen from '../../assets/media/img/productos/Pan-Rollo.jpg';
 import { Link } from 'react-router-dom';
 
+/**
+ * function Product receives an array object with the products of the selected category and renders them as cards
+ * @param {object[]} param0 - array of objects with the products of the selected category
+ *  @param {string} param1 - Product category
+ * @returns list of products consulted in cards (name, image, price)
+ */
+
 const Product = ({ props, category }) => {
 
     return (

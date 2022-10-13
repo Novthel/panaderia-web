@@ -2,6 +2,12 @@ import React from 'react';
 import menu from '../menu.json';
 import Product from '../components/pure/Product';
 
+
+/**
+ * 
+ * @returns renders the list of products offered on the page
+ */
+
 const Menu = () => {
 
     const panes = menu.filter((m) => m.category === 'panes');

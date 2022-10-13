@@ -21,6 +21,11 @@ const registerSchema = Yup.object().shape(
     }
 )
 
+/**
+ * 
+ * @returns The registration form
+ */
+
 const FormRegister = () => {
     const initialCredentials = {
         name:'',

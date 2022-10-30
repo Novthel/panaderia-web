@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CarouselMenu from '../pure/CarouselMenu';
-import Info from '../pure/Info';
 
 /**
  * 
@@ -10,18 +9,16 @@ import Info from '../pure/Info';
 
 const Principal = () => {
     return (
-        <div className='container'>
-            
-            <section className='sec-carousel'>
-                <CarouselMenu /> 
+        <> 
+            <section className='principal'>
+                <section className='sec-carousel'>
+                    <CarouselMenu />   
+                </section>
                 <div className='ver-menu'>
-                    <Link to='/menu' className='boton'>Ver Menu</Link>
+                        <Link to='/menu' className='boton'>Ver Menu</Link>
                 </div> 
             </section>
-            <section >
-                <Info />
-            </section>
-        </div>
+        </>
        
     );
 }

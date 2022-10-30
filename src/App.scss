@@ -8,13 +8,14 @@
 .sec-header {
     @include flex(center,center);
     background-color: $color-bg-principal;
+    top: 0;
+    left: 0;
     padding: 1rem;
-    height: 11rem;
-    border-bottom: 0.2rem solid $color-border-nav;
+    border-bottom: 0.1rem solid $color-border-nav;
     .nav-menu {
         background-color: $color-bg-principal;
         left: 100%;
-        transition: left 0.3s;
+        transition: left 0.45s;
         li {
             a {
                 color: $color-text-menu; 
@@ -25,23 +26,62 @@
         }
     }
     .nav-logo img {
-        max-width: 7rem;
-        border-radius: 50%;
-        border: 0.1rem solid $color-border-nav;
-        filter: opacity(0.9);
+        max-width: 8rem;
     }
     .hamb{
         display: none;
+        cursor: pointer;
     }
     .show {
-        left: 0;
+        left: 50%;
     }
 }
 
-/* ----- estilos componente CarouselMenu --------*/
-
-.sec-carousel {
-    margin-top: 3rem;
+.principal {
+    padding: 1rem 0;
+    /* ----- estilos componente CarouselMenu --------*/
+    .sec-carousel {
+        .carousel-inner {
+            .carousel-item {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                .video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: brightness(0.5);
+                }
+                .presentation {
+                    position: absolute;
+                    @include flex(flex-start,center);
+                    flex-direction: column;
+                    top: 100px;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    color: $color-text;
+                    h1 {
+                        font-size: 3rem;
+                    }
+                    p {
+                        font-size: 1.5rem;
+                    }
+                }
+                .carousel-caption {
+                    @include flex(center,center);
+                    flex-direction: column;
+                    top: 0;
+                    h5 {
+                        font-size: 2.5rem;
+                    }
+                    p {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
     .ver-menu {
         @include flex(center,center);
         margin: 2rem;
@@ -60,49 +100,59 @@
 
 /* ----- estilos componente Info --------*/
 
-.about-page {
-    @include base-pag(0, 110vh);
-}
 .sec-info {
+    margin: 2rem 0;
+    min-height: 100vh;
     .titulo {
         @include flex(center,center);
         padding: 1rem;
         color:$color-text-menu;
-        font-size: 1.7rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
     .info {
         @include flex(center,center);
-        @include base-pag(0, 55vh);
+        // @include base-pag(0, 55vh);
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 4rem;
+        margin-bottom: 1rem;
         .info-img {
             max-width: 25rem; 
         }
         .info-text {
-            max-width: 25rem; 
+            width: 25rem;
+            h4 {
+                font-size: 1.5rem;
+            } 
+            p {
+                font-size: 1rem;
+            }
         }
     }
 }
 
-/* ----- estilos componente Footer --------*/
+// /* ----- estilos componente Footer --------*/
 
 .sec-footer {
     min-width: 100%;
     background-color: $color-bg-footer;
     color: $color-text;
     .footer-info {
-        display: grid;
-        padding: 1rem;
-        grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
-        place-items: center;
-        gap: 2rem;
+        @include flex(space-around,center);
+        gap: 1rem;
         font-size: 0.8rem;
-       
-        .footer-logo {
-            max-width: 7rem;
-            border-radius: 50%;
-            opacity: 0,1;
+        padding: 1rem;
+        flex-wrap: wrap;
+        .footer-img {
+            @include flex(center,center);
+            gap: 1rem;
+            .footer-logo {
+                max-width: 8rem;
+                border-radius: 35%;
+                opacity: 0.6;
+            }
         }
+       
     }
     .copyrigth {
         @include flex(center,center);
@@ -111,11 +161,11 @@
     }
 }
 
+/* ----- estilos componente LoginPage - RegisterPage --------*/
 
-/* ----- estilos componente LoginPage --------*/
 .form-pages {
     @include flex(center,center);
-    @include base-pag(0, 100vh);
+    margin: 3rem 0;
     .container-form {
         display: flex;
         flex-direction: column;
@@ -179,15 +229,18 @@
    
 }
 
+/* ----- estilos componente Menu --------*/
 .sec-menu {
     width: 100%;
     padding: 2rem;
     .sec-prod {
+        border-bottom: 1px solid $color-border-nav;
+        padding-bottom: 1rem;
         margin-bottom: 2rem;
         .title-category {
             @include flex(center,center);
             text-transform: uppercase;
-            padding: 2rem;
+            padding: 1rem;
             color: $color-border-nav;
         }
         .products-list {
@@ -225,10 +278,8 @@
 
 .product-details {
     @include flex(center,center);
-    height: 80vh;
-    background: #FFEFBA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 2rem 0;
+    min-height: 80vh;
     .info-details {
         border:0.1rem solid $color-border-form;
         padding: 1.5rem;
@@ -289,75 +340,42 @@
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 767.98px) {
     .sec-header {
-        padding: 2rem;
+        justify-content: space-between;
+        top: 0;
+        min-width: 100%;
         .nav-menu {
+            display: block;
+            position: fixed;
+            text-align: center;
+            padding: 0;
+            top: 6rem;
+            gap: 0.8rem;
+            width: 50%;
+            min-height: 50vh;
+            padding-top: 1rem;
+            z-index: 2;
             li {
+                display: block;
+                padding: 0 1rem;
+               
                 a {
-                    padding-right: 1rem;
-                    font-size: 1rem;
+                    padding-right: 0;
+                    font-size: 0.7rem;
+                    text-decoration: none;
                 }   
             }
         }
-    }
-    .sec-info {
-        .info {
-            @include base-pag(0, 50vh);
-            .info-img {
-                max-width: 22rem; 
-            }
-            .info-text {
-                max-width: 17rem; 
-                font-size: 0.8rem;
-            }
-        }
-    }
-    .sec-footer {
-        .footer-info {
-            grid-template-columns: repeat(auto-fill, minmax(14rem,1fr));
-            font-size: 0.7rem;
-           
-            .footer-logo {
-                max-width: 7rem;
-            }
-        }
-    }
-
-}
-
-@media (max-width: 767.98px) { 
-    .sec-carousel {
-        margin-top: 10rem;
-    }
-    .sec-header {
-        justify-content: space-between;
-        position: fixed;
-        height: 3rem;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        z-index: 1;
-        .nav-menu {
-            flex-direction: column;
-            position: fixed;
-            font-size: 1.4rem;
-            padding: 0;
-            top: 4rem;
-            gap: 0.8rem;
-            min-width: 100%;
-            height: 100vh;
-            padding-top: 3rem;
-            z-index: 1;
-        }
 
         .nav-menu-2 {
-            top: 16rem;
+            top: 12rem;
             padding: 0;
+            z-index: 2;
         }
     
         .nav-logo img {
-            max-width: 2rem;
+            max-width: 2.5rem;
         }
         .hamb{
             font-size: 2.1rem;
@@ -372,35 +390,10 @@
             }
         }
     }
-
-    .sec-menu {
-        @include base-pag(5rem, 110vh);
+    .principal {
+          top: 12rem;
     }
-
-    .sec-info {
-        .info { 
-            .info-img {
-                max-width: 17rem; 
-            }
-            .info-text {
-                max-width: 13rem; 
-                font-size: 0.7rem;
-            }
-        }
-    }
-    .sec-footer {
-        .footer-info {
-            grid-template-columns: repeat(auto-fill, minmax(12rem,1fr));
-            font-size: 0.7rem;
-           
-            .footer-logo {
-                max-width: 7rem;
-            }
-        }
-    }
-
     .product-details {
-        @include base-pag(4rem, 100vh);
         .info-details {
             max-width: 40rem;
             gap: 1rem;
@@ -437,66 +430,72 @@
             
         }
     }
-    .about-page {
-        @include base-pag(6rem, 110vh);
-    }
-    .form-pages {
-        @include base-pag(8rem, 120vh);
-    }  
-    
-}
-
-
-@media (max-width: 576px) { 
-    
     .sec-info {
-        margin: 0;
-        .info {
-            @include base-pag(0, 80vh);
-            gap: 0.1rem;
+        .info { 
+            gap: 2rem;
             .info-img {
-                max-width: 19rem; 
+                max-width: 20rem; 
             }
             .info-text {
-                max-width: 17rem; 
-                font-size: 0.7rem;
-            }
-        }
-    } 
-
-    .form-pages {
-        .container-form {
-            max-width: 16rem;
-            .form-group {
-                .form-label {
+                max-width: 20rem; 
+                h4 {
+                    font-size: 1.3rem;
+                } 
+                p {
                     font-size: 0.8rem;
                 }
-                .form-msg {
-                    font-size: 0.7rem;
-                    
-                }
-                .btn-register {
-                    @include flex(center,center);
-                    .boton {
-                        padding: 0.3rem 2.5rem;
-                        font-size: 0.8rem;
-                    }  
-                }   
             }
-            .text-msg {
-                .text-p{
-                    font-size: 0.7rem;
+        }
+    }
+    .sec-footer {
+        .footer-info {
+            font-size: 0.7rem;
+            .footer-img {
+                .footer-logo {
+                    max-width: 6rem;
                 }
-                .link-msg {
-                    font-size: 0.7rem;
+            }
+           
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .principal {
+        /* ----- estilos componente CarouselMenu --------*/
+        .sec-carousel {
+            .carousel-inner {
+                height: 60vh;
+                .carousel-item {
+                    .presentation {
+                        h1 {
+                            font-size: 1.5rem;
+                        }
+                        p {
+                            font-size: 0.8rem;
+                        }
+                    }
+                    .carousel-caption {
+                        h5 {
+                            font-size: 1rem;
+                        }
+                        p {
+                            font-size: 0.6rem;
+                        }
+                    }
                 }
             }
         }
-       
-    }  
-    
+        .ver-menu {
+            @include flex(center,center);
+            margin: 2rem;
+            .boton {
+                padding: 0.2rem 1.3rem;
+                font-size: 0.8rem;
+            }  
+        }
+    }
     .product-details {
-        @include base-pag(4rem, 100vh);
         .info-details {
             padding: 0.5rem;
             max-width: 35rem;
@@ -528,19 +527,104 @@
             
         }
     }
+    .form-pages {
+        .container-form {
+            width: 17rem;
+            padding: 0 2.5rem;
+            legend {
+                padding: 1.7rem;
+            }
+            .form-group {
+                .form-msg {
+                    font-size: 0.7rem;   
+                } 
+                .btn-register {
+                    .boton {
+                        font-size: 0.8rem;
+                    }  
+                }
+            }
+            .text-msg {
+                .text-p{
+                    font-size: 0.7rem;
+                    margin-bottom: 0;
+                }
+                .link-msg {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    .sec-footer {
+        .footer-info {
+            font-size: 0.6rem;
+            padding: 2rem;
+            .footer-img {
+                .footer-logo {
+                    max-width: 5rem;
+                }
+            }
+           
+        }
+    }
 }
 
-@media (max-width: 360.98px) { 
+
+@media (max-width: 360.98px) {
+    .principal {
+        /* ----- estilos componente CarouselMenu --------*/
+        .sec-carousel {
+            .carousel-inner {
+                height: 60vh;
+                .carousel-item {
+                    .presentation {
+                        h1 {
+                            font-size: 1.5rem;
+                        }
+                        p {
+                            font-size: 0.8rem;
+                        }
+                    }
+                    .carousel-caption {
+                        h5 {
+                            font-size: 1rem;
+                        }
+                        p {
+                            font-size: 0.6rem;
+                        }
+                    }
+                }
+            }
+        }
+        .ver-menu {
+            @include flex(center,center);
+            margin: 2rem;
+            .boton {
+                padding: 0.2rem 1.3rem;
+                font-size: 0.8rem;
+            }  
+        }
+    }
     .sec-info {
-        .info {
-            @include base-pag(0, 60vh);
+        .info { 
+            gap: 2rem;
+            .info-img {
+                max-width: 18rem; 
+            }
+            .info-text {
+                max-width: 17rem; 
+                h4 {
+                    font-size: 1.1rem;
+                } 
+                p {
+                    font-size: 0.7rem;
+                }
+            }
         }
     }
     .product-details {
-        @include base-pag(4rem, 100vh);
         .info-details {
             max-width: 18rem;
-            flex-direction: column;
             padding: 0.8rem;
             .img-details {
                 max-width: 16rem;
@@ -568,13 +652,4 @@
             
         }
     }
-    .form-pages {
-        @include base-pag(0, 100vh);
-    }  
-}
-
-@media (max-width: 330.98px) { 
-    .form-pages {
-        @include base-pag(4rem, 110vh);
-    }  
 }

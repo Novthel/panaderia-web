@@ -13,7 +13,7 @@ const Product = ({ props, category }) => {
 
     return (
         <>
-            <h1 className='title-category'>{ category }</h1>
+            <h1 className='title-category'> { category }</h1>
             <div className='products-list'>
                 {
                     props.map((p)=>(

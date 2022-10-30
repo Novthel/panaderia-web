@@ -1,35 +1,46 @@
 import React from 'react';
-import galletas from '../../assets/media/img/galletas.jpg';
-import pan from '../../assets/media/img/pan.jpg';
-import postres from '../../assets/media/img/postres.jpg';
+import panes from '../../assets/media/video/panes.mp4';
+import elaboracion from '../../assets/media/video/elaboracion.mp4';
+import postre from '../../assets/media/video/postres.mp4';
+import galletas from '../../assets/media/video/galletas.mp4';
+
+
 
 const CarouselMenu = () => {
     return (
      
-            <div id="carousel-menu-panaderia" className="carousel slide" data-bs-ride="false">
-                <div className="carousel-indicators">
+            <div id="carousel-menu-panaderia" className="carousel slide carousel-fade " data-bs-ride="carousel">
+                {/* <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+                    <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div> */}
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={ pan } height={460} className="d-block w-100" alt='img-pan' />
-                        <div className="carousel-caption d-none d-md-block">
+                    <div className="carousel-item active" data-bs-interval="7000">
+                        <video className='video' src={ elaboracion } muted loop autoPlay />  
+                        <div className="presentation">
+                            <h1>PANADERIA WEB NOVTHEL</h1>
+                            <p> Disfruta de todos nuestros Productos</p>
+                        </div>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <video className='video' src={ panes } muted loop autoPlay /> 
+                    <div className="carousel-caption">
                             <h5>PANES</h5>
                             <p> Disfruta de nuestra seleccion de Panes Tradicionales - Ornamentales Y Estilo Moderno</p>
                         </div>
                     </div>
-                    <div className="carousel-item">
-                        <img src={ galletas } height={460} className="d-block w-100" alt='img-galletas'/>
-                        <div className="carousel-caption d-none d-md-block">
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <video className='video' src={ galletas } muted loop autoPlay /> 
+                        <div className="carousel-caption">
                             <h5>GALLETAS</h5>
                             <p>Disfruta de todos nuestro productos en Galletas. Horneadas - Artesanales - Caseras - Fechas especiales</p>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={ postres } height={460} className="d-block w-100" alt="mg-postres"/>
-                        <div className="carousel-caption d-none d-md-block">
+                        <video className='video' src={ postre } muted loop autoPlay /> 
+                        <div className="carousel-caption">
                             <h5>POSTRES</h5>
                             <p>Tres leche - Frutas - Flanes - Pasteles para eventos</p>
                         </div>
@@ -43,7 +54,7 @@ const CarouselMenu = () => {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-                </div>
+            </div>
     );
 }
 

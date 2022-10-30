@@ -19,17 +19,17 @@ const Header = () => {
         <>
             <nav className='sec-header'>
                 <ul className={`nav-menu ${ showMenu ? 'show ':' none' }`} >
-                    <li><Link to='/'  onClick={ toggleMenu } >Inicio</Link></li>
-                    <li><Link to='/info'  onClick={ toggleMenu } >Conocenos</Link></li>
-                    <li><Link to='/contacto'  onClick={ toggleMenu } >Contactanos</Link></li>
+                    <li><Link to='/'  onClick={ toggleMenu } >INICIO</Link></li>
+                    <li><Link to='/info'  onClick={ toggleMenu } >CONOCENOS</Link></li>
+                    <li><Link to='/contacto'  onClick={ toggleMenu } >CONTACTANOS</Link></li>
                 </ul> 
                 <div  className='nav-logo'>
                     <img src={ logo } alt='logo-panaderia' />
                 </div>
                 <ul className={`nav-menu nav-menu-2 ${ showMenu ? 'show ':' none' }`}>
-                    <li><Link to='/menu'  onClick={ toggleMenu } >Menu</Link></li>
-                    <li><Link to='/login'  onClick={ toggleMenu } >Login</Link></li>
-                    <li><Link to='/registro'  onClick={ toggleMenu } >Registro</Link></li>
+                    <li><Link to='/menu'  onClick={ toggleMenu } >MENU</Link></li>
+                    <li><Link to='/login'  onClick={ toggleMenu } >LOGIN</Link></li>
+                    <li><Link to='/registro'  onClick={ toggleMenu } >REGISTRO</Link></li>
                 </ul> 
                 <button className='hamb' onClick={ toggleMenu } ><i className="bi bi-list"></i></button>  
             </nav>

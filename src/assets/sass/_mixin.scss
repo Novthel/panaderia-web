@@ -5,8 +5,3 @@
    align-items: $align-items;
 }
 
-@mixin base-pag($margin-top, $min-height) {
-   min-height: $min-height;
-   margin-top: $margin-top;
-   max-width: 1400px;
-}

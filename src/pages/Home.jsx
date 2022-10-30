@@ -5,10 +5,10 @@ import Footer from '../components/pure/Footer';
 
 const Home = () => {
     return (
-            <div className='home-page'>
+             <>
                 <Principal />
                 <Footer />
-            </div>
+            </>
     );
 }
 

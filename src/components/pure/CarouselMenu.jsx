@@ -10,17 +10,11 @@ const CarouselMenu = () => {
     return (
      
             <div id="carousel-menu-panaderia" className="carousel slide carousel-fade " data-bs-ride="carousel">
-                {/* <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carousel-menu-panaderia" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div> */}
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="7000">
                         <video className='video' src={ elaboracion } muted loop autoPlay />  
                         <div className="presentation">
-                            <h1>PANADERIA WEB NOVTHEL</h1>
+                            <h1>PANADERIA NOVTHEL</h1>
                             <p> Disfruta de todos nuestros Productos</p>
                         </div>
                     </div>

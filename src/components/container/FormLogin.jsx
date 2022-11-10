@@ -1,11 +1,11 @@
-import React from 'react'
 import { Formik , Form , Field , ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase/Credentials';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import toast from 'react-hot-toast';
 
 const loginSchema = Yup.object().shape(
-
     {
         email: Yup.string()
                 .email('<i> Invalid email format')
@@ -21,11 +21,26 @@ const loginSchema = Yup.object().shape(
  */
 
 export default function LoginFormik() {
-
+    const navigate = useNavigate();
+    
     const initialCredentials = {
             email:'',
             password:''
         }
+        
+    const loginUser =(values)=> {
+        const { email, password } = values;
+    
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+                navigate('/')
+            })
+            .catch((error) => {
+                toast('Correo o password invalido')
+        });
+    }
 
     return (
         <div className='container-form'>
@@ -33,11 +48,7 @@ export default function LoginFormik() {
             <Formik 
                 initialValues = { initialCredentials }
                 validationSchema = { loginSchema }
-
-                onSubmit={async (values) => {
-                    await new Promise((r) => setTimeout(r, 500));
-                    alert(JSON.stringify(values, null, 2));
-                }}
+                onSubmit={ (values) => loginUser(values) }
                 >
 
                 {({ isSubmitting }) => (
@@ -54,19 +65,14 @@ export default function LoginFormik() {
                         </div>
                         <div className='form-group py-3'>
                             <button type="submit" className='btn btn-primary btn-sm rounded-pill'>Submit</button>
-                            { isSubmitting ? (<p>Login your credentials ...</p>) : null }
                         </div>
                         <div className='text-msg'>
                             <p className='text-p'>¿No tienes cuenta?</p>
                             <Link to='/registro' className='link-msg'>Registrate</Link>
-                        </div>
-                       
+                        </div>   
                     </Form>
-
-                )}
-                
+                )}  
             </Formik>
-    
         </div>
     )
 }

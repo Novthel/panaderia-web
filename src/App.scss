@@ -37,6 +37,32 @@
     }
 }
 
+.welcome {
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: end;
+    .welcome-p{
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 0;
+        font-weight: 400;
+    }
+    .boton {
+            background: none;
+            border: 0.1px solid $color-btn;;
+            padding: 0.4rem 1rem;
+            border-radius: 1.1rem;
+            font-size: 0.8rem;
+            transition: .3s;
+            &:hover {
+                background-color: $color-btn;
+                color: $color-text;
+            }
+        }  
+}
+
 .principal {
     padding: 1rem 0;
     /* ----- estilos componente CarouselMenu --------*/
@@ -337,6 +363,73 @@
         }
         
     }
+}
+
+/* ----- estilos pagina dashboard --------*/
+
+.sec-dashboard {
+    .nav-dashboard {
+        @include flex(space-between,center);
+        max-width: 100%;
+        padding: 0.5rem 3rem;
+        background-color:  rgb(36, 21, 3);
+        border-bottom: 1px solid rgb(165, 113, 45) ;
+        h4 {
+            color: $color-text;
+        }
+        .logo-dashboard {
+            height: 4rem;
+        }
+        .boton {
+            background: none;
+            border: none;
+            color: $color-text;
+            font-weight: 400;
+            transition: .45s;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.6rem;
+            &:hover {
+                background: rgb(53, 31, 5); 
+            }
+        }
+
+    }
+    .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        .option-menu {
+            display: block;
+            list-style: none;
+            padding-top: 2rem;
+            padding-left: 0;
+            margin-bottom: 0;
+            background-color: rgb(36, 21, 3);
+            min-height: 100vh;
+            // width: 18rem;
+            li {
+                padding: 0.5rem 2rem;
+                text-align: center;
+                transition: .45s;
+                &:hover {
+                    background: rgb(53, 31, 5); 
+                }
+                .option {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    color: $color-text;
+                    font-size: 1.2rem;
+                }
+            }   
+        }
+        .content {
+            @include flex(center,flex-start);
+            padding: 2rem;
+        }
+    }
+}
+.clients {
+    @include flex(center,center);
 }
 
 

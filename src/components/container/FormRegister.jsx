@@ -1,7 +1,12 @@
 import React from 'react';
 import { Formik , Form , Field , ErrorMessage } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { auth } from '../../firebase/Credentials';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import toast from 'react-hot-toast';
+import { newUser } from '../../firebase/userController';
+
 
 
 const registerSchema = Yup.object().shape(
@@ -21,18 +26,39 @@ const registerSchema = Yup.object().shape(
     }
 )
 
+
 /**
  * 
  * @returns The registration form
  */
-
+ 
 const FormRegister = () => {
+
+    const navigate = useNavigate();
     const initialCredentials = {
         name:'',
         lastname:'',
         email:'',
         password:'',
         direction:''
+    }
+
+
+    const createUser = (values)=> {
+       
+        const { email, password, name } = values;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => { 
+                const user = userCredential.user.uid;
+                toast(`Usuario ${name} ha sido registrado exitosamente.`);
+                navigate('/login');
+
+                newUser(user, values)
+            })
+            .catch((error) => {
+                toast('Error de registro. por favor intente nuevamente')
+        });
     }
 
     return (
@@ -42,11 +68,7 @@ const FormRegister = () => {
                 <Formik 
                     initialValues = { initialCredentials }
                     validationSchema = { registerSchema }
-                    onSubmit={async (values) => {
-                        await new Promise((r) => setTimeout(r, 500));
-                        alert(JSON.stringify(values, null, 2));
-                    }}
-                    >
+                    onSubmit= { values => createUser(values)}>
 
                     {({ isSubmitting }) => (
                         <Form>
@@ -59,18 +81,21 @@ const FormRegister = () => {
                                 <ErrorMessage name="lastname" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group'>   
+                                <Field id="direction" className='form-field' type="text" name="direction" placeholder="direction" />
+                                <ErrorMessage name="direction" component='div'  className='form-msg' />
+                            </div>
+                            <div className='form-group'>   
                                 <Field id="email" className='form-field' type="email" name="email" placeholder="Email" />
                                 <ErrorMessage name="email" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group'>
-                                <Field id="password" className='form-field' type="password" name="password" placeholder="Password" />
+                                <Field id="password" className='form-field' type="password" autoComplete="current-password" name="password" placeholder="Password" />
                                 <ErrorMessage name="password" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group py-3'>
                                 <div className='btn-register'>
                                     <button type="submit" className='boton'>Registrate</button>
                                 </div>
-                                { isSubmitting ? (<p>Login your credentials ...</p>) : null }
                             </div>
                             <div className='text-msg'>
                                 <p className='text-p'>¿Ya eres miembro?</p>

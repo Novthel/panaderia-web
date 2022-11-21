@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { auth } from '../../firebase/Credentials';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import toast from 'react-hot-toast';
-import { newUser } from '../../firebase/userController';
+import { newUser } from '../../firebase/UserController';
 
 
 
@@ -35,12 +35,13 @@ const registerSchema = Yup.object().shape(
 const FormRegister = () => {
 
     const navigate = useNavigate();
+   
     const initialCredentials = {
-        name:'',
-        lastname:'',
-        email:'',
-        password:'',
-        direction:''
+        name: '',
+        lastname: '',
+        email: '',
+        password: '',
+        direction: ''
     }
 
 
@@ -61,10 +62,11 @@ const FormRegister = () => {
         });
     }
 
+
     return (
         <>
             <div className='container-form'>
-                <legend> Register</legend>
+                <legend>Registro</legend>
                 <Formik 
                     initialValues = { initialCredentials }
                     validationSchema = { registerSchema }
@@ -73,35 +75,37 @@ const FormRegister = () => {
                     {({ isSubmitting }) => (
                         <Form>
                             <div className='form-group'>  
-                                <Field id="name" className='form-field' type="text" name="name" placeholder="Name" />
+                                <Field id="name" className='form-field' type="text" name="name" placeholder="Nombres" />
                                 <ErrorMessage name="name" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group'>   
-                                <Field id="lastname" className='form-field' type="text" name="lastname" placeholder="Lastname" />
+                                <Field id="lastname" className='form-field' type="text" name="lastname" placeholder="Apellidos" />
                                 <ErrorMessage name="lastname" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group'>   
-                                <Field id="direction" className='form-field' type="text" name="direction" placeholder="direction" />
+                                <Field id="direction" className='form-field' type="text" name="direction" placeholder="Lugar de Residencia" />
                                 <ErrorMessage name="direction" component='div'  className='form-msg' />
                             </div>
                             <div className='form-group'>   
-                                <Field id="email" className='form-field' type="email" name="email" placeholder="Email" />
+                                <Field id="email" className='form-field' type="email" name="email" placeholder="Correo" />
                                 <ErrorMessage name="email" component='div'  className='form-msg' />
                             </div>
+                           
                             <div className='form-group'>
-                                <Field id="password" className='form-field' type="password" autoComplete="current-password" name="password" placeholder="Password" />
+                                <Field id="password" className='form-field' type="password" autoComplete="current-password" name="password" placeholder="Contraseña" />
                                 <ErrorMessage name="password" component='div'  className='form-msg' />
-                            </div>
+                            </div> 
+                            
                             <div className='form-group py-3'>
                                 <div className='btn-register'>
-                                    <button type="submit" className='boton'>Registrate</button>
+                                    <button type="submit" className='boton'>Guardar</button>
                                 </div>
                             </div>
+                            
                             <div className='text-msg'>
                                 <p className='text-p'>¿Ya eres miembro?</p>
                                 <Link to='/login' className='link-msg'>Inicia tu sesion</Link>
-                            </div>
-
+                            </div>  
                         </Form>
                     )} 
                 </Formik>    

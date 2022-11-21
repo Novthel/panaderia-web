@@ -1,5 +1,5 @@
 import { db } from './Credentials';
-import { getDoc, doc, setDoc, getDocs, collection } from 'firebase/firestore';
+import { getDoc, doc, setDoc, getDocs, collection, deleteDoc } from 'firebase/firestore';
 
 
 export const newUser = (user, values)=> {
@@ -23,6 +23,7 @@ export const getUser = async (uid)=> {
       }
 }
 
+
 export const getListUser = async ()=> {
 
   const querySnapshot = await getDocs(collection(db, "users"));
@@ -31,5 +32,30 @@ export const getListUser = async ()=> {
   });
  
   return listUser;
+}
 
+
+export const updateUser = async (data)=> {
+    
+  try {
+      await setDoc( doc(db, "users", data.id), data);  
+      alert('Producto actualizado exitosamente');
+  } catch (error) {
+      console.error('Error. Fallo al actualizar el documento', error)
+      alert('Erro. Fallo al actualizar el documento')
+  }
+  
+}
+
+
+
+export const removeUser = async (id)=>{
+
+    try {
+      await deleteDoc(doc(db, "users", id));
+      alert('Usuario borrado exitosamente');
+    } catch (error) {
+        alert('Error. No se pudo eliminar el Usuario');
+        console.error(error)
+    }
 }

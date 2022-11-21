@@ -54,17 +54,17 @@ export default function LoginFormik() {
                 {({ isSubmitting }) => (
                     <Form>
                         <div className='form-group'>   
-                            <Field id="email" className='form-field' type="email" name="email" placeholder="introduzca email" />
+                            <Field id="email" className='form-field' type="email" name="email" placeholder="introduzca su correo" />
                             <label  className='form-label' htmlFor="email">Email</label>
                             <ErrorMessage name="email" component='div'  className='form-msg' />
                         </div>
                         <div className='form-group'>
-                            <Field id="password" className='form-field' type="password" name="password" placeholder="Password" />
+                            <Field id="password" className='form-field' type="password" name="password" placeholder="Introduzaca una contraseña" />
                             <label htmlFor="password" className='form-label' >Password</label>
                             <ErrorMessage name="password" component='div'  className='form-msg' />
                         </div>
                         <div className='form-group py-3'>
-                            <button type="submit" className='btn btn-primary btn-sm rounded-pill'>Submit</button>
+                            <button type="submit" className='btn btn-primary btn-sm rounded-pill'>Enviar</button>
                         </div>
                         <div className='text-msg'>
                             <p className='text-p'>¿No tienes cuenta?</p>

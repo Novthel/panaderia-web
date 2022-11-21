@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import menu  from '../../menu.json';
-import imagen from '../../assets/media/img/productos/Chocolate.jpg';
+import { getProduct } from '../../firebase/ProductsController';
+
 
 /**
  * function ProductDetails receives the product id via queryparams and displays its detailed information
@@ -31,11 +31,12 @@ const ProductDetails = () => {
 
     useEffect(() => {
         if(params.id) {
-            const product = menu.find((m)=> m.id === Number(params.id));
-
-            setProd({
-                ...prod, ...product
-            })
+            getProduct(params.id)
+                .then(product => setProd({
+                    ...prod, ...product
+                }))    
+                .catch(e => console.error(e))
+            
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params.id]);
@@ -47,7 +48,7 @@ const ProductDetails = () => {
     return (
         <div className='product-details'>    
             <div className='info-details'>
-                <img className='img-details' src={ imagen } alt={ prod.nameProduct } />
+                <img className='img-details' src={ prod.url } alt={ prod.nameProduct } />
                 <div className="details-body">
                     <h5 className="details-title">{ prod.nameProduct }</h5>
                     <p className="details-price"> $ { prod.price }</p>

@@ -12,6 +12,7 @@ import { auth } from './firebase/Credentials';
 import { onAuthStateChanged } from 'firebase/auth';
 import Dashboard from './pages/Dashboard';
 
+
 export const appContext = createContext(null);
 
 function App() {

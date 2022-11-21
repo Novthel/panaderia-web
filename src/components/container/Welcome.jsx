@@ -4,7 +4,7 @@ import { signOut } from "firebase/auth";
 import { useContext, useEffect, useState } from 'react';
 import { appContext } from '../../App';
 import { useNavigate } from "react-router-dom"; 
-import { getUser } from "../../firebase/userController";
+import { getUser } from "../../firebase/UserController";
 
 const Welcome = () => {
 
@@ -22,14 +22,22 @@ const Welcome = () => {
   
   return (
     <div className='welcome'>
-        <p className='welcome-p'> { userSession ? `Hola ${ name }, sigue disfrutando de nuestros Productos` : `Bienvenido, disfruta de nuestros Productos` } </p>
+        <div className='welcome-p'> 
+          { 
+            userSession ? 
+            <p className='welcome-saludo'>Hola, <span>{ name }</span> sigue disfrutando de nuestros Productos</p>
+            : 
+            <p className='welcome-saludo'>Bienvenido, disfruta de nuestros Productos</p>
+          } 
+        </div>
+
         { userSession ? 
         <button className='boton' onClick={ ()=> signOut(auth) }>
-          cerrar sesion
+          Salir
         </button>
         :
         <button className='boton' onClick={ ()=>{ navigate('/login')}}>
-          iniciar sesion
+          iniciar
         </button>
         }
         

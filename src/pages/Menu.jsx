@@ -1,8 +1,9 @@
-import React from 'react';
-import menu from '../menu.json';
+import React, { useState } from 'react';
 import Product from '../components/pure/Product';
 import Header from '../components/container/Header';
 import Welcome from '../components/container/Welcome';
+import CategoryMenu from '../components/pure/CategoryMenu';
+import { getColectionProduct } from '../firebase/ProductsController';
 
 
 /**
@@ -12,28 +13,27 @@ import Welcome from '../components/container/Welcome';
 
 const Menu = () => {
 
-    const panes = menu.filter((m) => m.category === 'panes');
-    const galletas = menu.filter((g) => g.category === 'galletas');
-    const postres = menu.filter((p) => p.category === 'postres');
+    const [listproduct, setListProduct] = useState([]);
 
+    const selectCategory = async (category)=> {
+        const result = await getColectionProduct(category)
+        setListProduct(result)
+    }
+
+    
     return (
         <>
             <Header />
             <Welcome />
             <div className='sec-menu'>
-                <section className='sec-prod'> 
-                    <Product props ={ panes } category='panes' />
+                <section className='sec-category-menu'>
+                    <CategoryMenu selectCategory={ selectCategory } />
                 </section>
                 <section className='sec-prod'> 
-                    <Product props ={ galletas } category='galletas' />
-                </section>
-                <section className='sec-prod'> 
-                    <Product props ={ postres } category='postres' />
+                    <Product listproduct ={ listproduct } />
                 </section>
             </div>
         </>
-        
-       
     );
 }
 

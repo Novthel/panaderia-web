@@ -39,21 +39,20 @@ export const updateUser = async (data)=> {
     
   try {
       await setDoc( doc(db, "users", data.id), data);  
-      alert('Producto actualizado exitosamente');
+      alert('Usuario actualizado exitosamente');
   } catch (error) {
       console.error('Error. Fallo al actualizar el documento', error)
-      alert('Erro. Fallo al actualizar el documento')
+      alert('Error. Fallo al actualizar el documento')
   }
   
 }
-
 
 
 export const removeUser = async (id)=>{
 
     try {
       await deleteDoc(doc(db, "users", id));
-      alert('Usuario borrado exitosamente');
+      alert('Usuario eliminado exitosamente');
     } catch (error) {
         alert('Error. No se pudo eliminar el Usuario');
         console.error(error)

@@ -1,11 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Formik , Form , Field , ErrorMessage } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { auth } from '../../firebase/Credentials';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import toast from 'react-hot-toast';
-import { newUser } from '../../firebase/UserController';
+import { newUser } from '../../../firebase/UserController';
+import { AppContext } from '../../../auth/UserProvider';
 
 
 
@@ -35,31 +33,47 @@ const registerSchema = Yup.object().shape(
 const FormRegister = () => {
 
     const navigate = useNavigate();
+    const { registerUser } = useContext(AppContext);
    
     const initialCredentials = {
         name: '',
         lastname: '',
         email: '',
         password: '',
-        direction: ''
+        direction: '',
+        rol: 'user'
     }
 
+    /**
+     * The createUser function is called to connect to firebase and register with email and password
+     * @param { email, password, name } values 
+     */
 
-    const createUser = (values)=> {
+    const createUser = async (values)=> {
        
         const { email, password, name } = values;
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => { 
-                const user = userCredential.user.uid;
-                toast(`Usuario ${name} ha sido registrado exitosamente.`);
-                navigate('/login');
-
-                newUser(user, values)
-            })
-            .catch((error) => {
-                toast('Error de registro. por favor intente nuevamente')
-        });
+        try {
+            const userCredential = await registerUser(email, password);
+            const user = userCredential.user.uid;
+            alert(`Usuario ${name} ha sido registrado exitosamente.`);
+            newUser(user, values)
+            navigate('/');
+            
+        } catch (error) {
+            console.log(error.code)
+            switch (error.code) {
+                case "auth/email-already-in-use":
+                    alert("Usuario ya registrado");
+                    break;
+                case "auth/invalid-email":
+                    alert("Formato email no válido");
+                    break;
+                
+                default:
+                    alert("Error, intentelo más tarde");
+            }
+        }    
     }
 
 

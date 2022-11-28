@@ -1,48 +1,37 @@
-import React, { createContext, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.scss';
+import { useContext } from 'react';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import About from './pages/About';
 import Menu from './pages/Menu';
-import ProductDetails from './components/container/ProductDetails';
-import { Toaster } from 'react-hot-toast'
-import { auth } from './firebase/Credentials';
-import { onAuthStateChanged } from 'firebase/auth';
 import Dashboard from './pages/Dashboard';
+import RequireAuth from './auth/RequireAuth';
+import { AppContext } from './auth/UserProvider';
 
 
-export const appContext = createContext(null);
+
 
 function App() {
-
-  const [ userSession, setUserSession ] = useState(null);
-
-  onAuthStateChanged(auth, (userFirebase) => {
-        if(userFirebase) {
-          setUserSession(userFirebase)
-        }else {
-          setUserSession(null)
-        }
-  })
+  const { userSession } = useContext(AppContext);
 
   return (
-        <appContext.Provider value={{ userSession, setUserSession }}>
-            <BrowserRouter>
-              <Toaster />
-              <Routes>
-                  <Route path='/' element={ <Home /> } />
-                  <Route path='/info' element={ <About /> } />
-                  <Route path='/login' element={ <LoginPage /> } />
-                  <Route path='/registro' element={ <RegisterPage /> } />
-                  <Route path='/menu' element={ <Menu /> } />
-                  <Route path='/producto/:id' element={ <ProductDetails /> } />
-                  <Route path='/Dashboard' element={ <Dashboard /> } />
-              </Routes>
-            
-            </BrowserRouter>
-        </appContext.Provider>
+          <Routes>
+              <Route path='/' element={ <Home /> } />
+              <Route path='/info' element={ <About /> } />
+              <Route path='/login' element={ <LoginPage /> } />
+              <Route path='/registro' element={ <RegisterPage /> } />
+              <Route path='/menu' element={ <Menu /> } />
+              <Route path='/menu' element={ <Menu /> } />
+              <Route path='/Dashboard' 
+                element= { 
+                  <RequireAuth isAllowed={ !!userSession && userSession.rol === 'SuperAdmin' }> 
+                    <Dashboard />
+                  </RequireAuth> 
+                } />    
+                
+          </Routes>     
   );
 }
 

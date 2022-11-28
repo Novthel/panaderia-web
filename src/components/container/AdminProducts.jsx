@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MenuAdminProduct from '../pure/MenuAdminProduct';
-import FormProduct from './FormProduct';
+import FormProduct from './form/FormProduct';
 import ListProduct from './ListProduct';
 
 

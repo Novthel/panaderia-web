@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getUser, newUser, updateUser } from '../../firebase/UserController';
-import { auth } from '../../firebase/Credentials';
+import { getUser, newUser, updateUser } from '../../../firebase/UserController';
+import { auth } from '../../../firebase/Credentials';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const FormAdminRegister = ({ id, mode }) => {
@@ -10,6 +10,7 @@ const FormAdminRegister = ({ id, mode }) => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ direction, setDirection ] = useState('');
+    const [ rol, setRol ] = useState('user')
 
 
     const data = {
@@ -17,7 +18,8 @@ const FormAdminRegister = ({ id, mode }) => {
       lastname,
       email,
       password,
-      direction
+      direction,
+      rol
   }
 
     const handleSubmit = (e)=> {
@@ -41,9 +43,19 @@ const FormAdminRegister = ({ id, mode }) => {
                     mode('list')
                 })
                 .catch((error) => {
-                    alert('Error de registro. por favor intente nuevamente')
-        });
-
+                  console.log(error.code)
+                  switch (error.code) {
+                      case "auth/email-already-in-use":
+                          alert("Usuario ya registrado");
+                          break;
+                      case "auth/invalid-email":
+                          alert("Formato email no válido");
+                          break;
+                      
+                      default:
+                          alert("Error, intentelo más tarde");
+                  }
+                });
       }
     }
 
@@ -58,6 +70,7 @@ const FormAdminRegister = ({ id, mode }) => {
                 setEmail(user.email);
                 setPassword(user.password);
                 setDirection(user.direction);
+                setRol(user.rol)
               })
         }
       }, [id])
@@ -73,23 +86,30 @@ const FormAdminRegister = ({ id, mode }) => {
                     <label htmlFor="lastname"><span>Apellidos</span></label>
                     <input type="text" name="lastname" id="price" className='form-control' value={ lastname }  onChange={ e => setLastname(e.target.value) } required/>
                     
-                    <label htmlFor="category"><span>email</span></label>
+                    <label htmlFor="email"><span>Email</span></label>
                     <input type="text" className='form-control' name="email" id="email" value= { email } onChange={ e => setEmail(e.target.value) } required/>
                     
                     <label htmlFor="direction"><span className="d-flex flex-start">Direccion</span> </label>  
                     <input type="text" name="direction" className='form-control' id="direction" value= { direction }  onChange={ e => setDirection(e.target.value)} required/>
-                 
+                    
                     {
                         id?
                         null
                         :
                         (
                           <>
-                            <label htmlFor="category"><span>Password</span></label>
+                            <label htmlFor="password"><span>Password</span></label>
                             <input type="text" className='form-control' name="password" id="password" value= { password } onChange={ e => setPassword(e.target.value) } required/>
                           </>
                         )
                     }
+                    <label htmlFor="Rol"><span>Rol</span></label>
+                    <select className='form-select mb-2' id='select' name='Rol' onChange={ (e)=> setRol(e.target.value)} >
+                          <option selected>{ rol }</option>
+                          <option value="user">User</option>
+                          <option value="Admin">Admin</option>
+                          <option value="SuperAdmin">SuperAdmin</option>
+                    </select>
 
                     <div className='containerBtn-form'>
                         <button  type="submit" className='btn btn-primary btn-sm col-4' id="btn-enviar">{ id ? 'UPDATE' : 'SAVE' }</button>

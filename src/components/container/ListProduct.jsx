@@ -5,11 +5,12 @@ import { getListProducts, removeProduct } from '../../firebase/ProductsControlle
 const ListProduct = ({ editProduct, mode }) => {
 
     const [listproduct, setListProduct] = useState([]);
+    const [ change, setChange ] = useState(false);
 
-    const deleteProduct = (id)=> {
+    const deleteProduct = async (id)=> {
         if(window.confirm("Seguro que quiere borrar este elemento?")){
-            removeProduct(id)
-            mode('list')
+            await removeProduct(id)
+            setChange(!change)
         } 
     }
 
@@ -17,7 +18,7 @@ const ListProduct = ({ editProduct, mode }) => {
         getListProducts()
             .then(list => setListProduct(list))    
             .catch(e => console.error(e))
-    }, []);
+    }, [change]);
 
     return (
         <div className='admin-listProduct'>

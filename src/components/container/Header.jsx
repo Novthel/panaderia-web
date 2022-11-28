@@ -21,7 +21,7 @@ const Header = () => {
                 <ul className={`nav-menu ${ showMenu ? 'show ':' none' }`} >
                     <li><Link to='/'  onClick={ toggleMenu } >INICIO</Link></li>
                     <li><Link to='/info'  onClick={ toggleMenu } >CONOCENOS</Link></li>
-                    <li><Link to='/contacto'  onClick={ toggleMenu } >CONTACTANOS</Link></li>
+                    <li><Link to='/contact'  onClick={ toggleMenu } >CONTACTANOS</Link></li>
                 </ul> 
                 <div  className='nav-logo'>
                     <img src={ logo } alt='logo-panaderia' />
@@ -31,6 +31,7 @@ const Header = () => {
                     <li><Link to='/login'  onClick={ toggleMenu } >LOGIN</Link></li>
                     <li><Link to='/registro'  onClick={ toggleMenu } >REGISTRO</Link></li>
                 </ul> 
+                <div className= 'company-name'>PANADERIA-NOVTHEL</div>
                 <button className='hamb' onClick={ toggleMenu } ><i className="bi bi-list"></i></button>  
             </nav>
         </>

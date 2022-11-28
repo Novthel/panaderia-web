@@ -5,3 +5,12 @@
    align-items: $align-items;
 }
 
+@mixin display-form($color-text, $font-size) {
+   padding: 0.4rem 1rem;
+   border-width: 0.5px;
+   border-radius: 0.3rem;
+   outline: none;
+   color: $color-text;
+   font-size: $font-size;
+}
+

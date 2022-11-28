@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MenuAdminProduct from '../pure/MenuAdminProduct';
 import Clients from './Clients';
-import FormAdminRegister from './FormAdminRegister';
+import FormAdminRegister from './form/FormAdminRegister';
 
 
 

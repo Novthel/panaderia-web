@@ -1,5 +1,5 @@
 import React from 'react';
-import FormLogin from '../components/container/FormLogin';
+import FormLogin from '../components/container/form/FormLogin';
 import Header from '../components/container/Header';
 import Welcome from '../components/container/Welcome';
 

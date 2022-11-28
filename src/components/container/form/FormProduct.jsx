@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getProduct, saveProduct, uploadFile, updateProduct } from '../../firebase/ProductsController';
+import { getProduct, saveProduct, uploadFile, updateProduct } from '../../../firebase/ProductsController';
 
 
 const FormProduct = ({ id, mode }) => {

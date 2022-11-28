@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Orders = () => {
+const Comments = () => {
     return (
         <div>
-            oredenes
+            comentarios
         </div>
     );
 }
 
-export default Orders;
+export default Comments;

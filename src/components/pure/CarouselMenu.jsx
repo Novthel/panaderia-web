@@ -29,10 +29,10 @@ const CarouselMenu = () => {
                         <video className='video' src={ galletas } muted loop autoPlay /> 
                         <div className="carousel-caption">
                             <h5>GALLETAS</h5>
-                            <p>Disfruta de todos nuestro productos en Galletas. Horneadas - Artesanales - Caseras - Fechas especiales</p>
+                            <p>Disfruta de nuestras Galletas. Horneadas - Artesanales - Caseras - Fechas especiales</p>
                         </div>
                     </div>
-                    <div className="carousel-item">
+                    <div className="carousel-item" data-bs-interval="5000">
                         <video className='video' src={ postre } muted loop autoPlay /> 
                         <div className="carousel-caption">
                             <h5>POSTRES</h5>

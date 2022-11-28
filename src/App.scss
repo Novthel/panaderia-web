@@ -32,6 +32,9 @@
         display: none;
         cursor: pointer;
     }
+    .company-name {
+        display: none;
+    }
     .show {
         left: 50%;
     }
@@ -43,11 +46,18 @@
     gap: 0.8rem;
     .welcome-p{
         margin-bottom: 0;
+        display: flex;
+        align-items: center;
         .welcome-saludo {
             margin-bottom: 0;
             font-size:1rem;
+            .boton {
+                margin-left: 0.7rem;
+            }
             span {
-                font-size:1.5rem;
+                font-size:1.3rem;
+                font-weight: bold;
+                text-transform: capitalize;
             }
         }
     }
@@ -73,11 +83,11 @@
             .carousel-item {
                 position: relative;
                 width: 100%;
-                height: 100vh;
+                height: 85vh;
                 .video {
                     width: 100%;
                     filter: brightness(0.5);
-                    height: 100%;
+                    height: 100%;                   
                     object-fit: cover;
                     object-position: center center;
                 }
@@ -100,7 +110,7 @@
                 .carousel-caption {
                     @include flex(center,center);
                     flex-direction: column;
-                    top: 0;
+                    top: 5;
                     h5 {
                         font-size: 2.5rem;
                     }
@@ -127,6 +137,65 @@
             }
         }  
     }
+}
+
+.sec-contact {
+    @include flex(center, center);
+    min-height: 80vh;
+    color: $color-text-menu;
+    flex-direction: column;
+    padding: 2rem;
+    .sec-title {
+        h3{
+            font-size: 2rem;
+        }
+    }
+   
+    .container {
+        @include flex(center, center);
+        form {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border: 1px solid $color-border-form;
+            gap: 1.5rem;
+
+            .data-input {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;  
+                label {
+                    width: 49%;
+                }
+            }
+            label {
+                display: flex;
+                flex-direction: column;
+                span {
+                    display: flex;
+                    justify-content: flex-start;
+                    font-size: 1rem;
+                }
+                input {
+                    width: 100%;
+                    @include display-form($color-text-menu, 1rem);
+                }
+                textarea {
+                    @include display-form($color-text-menu, 1rem);
+                }
+            }
+            .btn-form {
+                @include flex(center, center);
+                .btn-base {
+                    background-color: $color-bg-boton;
+                    color: $color-text-menu;
+                    border: 1px solid $color-text-menu;
+                }
+            }
+        }
+    }
+    
 }
 
 /* ----- estilos componente Info --------*/
@@ -170,7 +239,7 @@
     color: $color-text;
     .footer-info {
         @include flex(center,center);
-        gap: 5rem;
+        gap: 10rem;
         font-size: 0.8rem;
         padding: 1rem;
         flex-wrap: wrap;
@@ -280,6 +349,9 @@
                     .card-title {
                         color: $color-text-menu;
                     }
+                    .card-text {
+                        color: $color-text-menu;
+                    }
                     .card-btn {
                         @include flex(center,center);
                         .boton {
@@ -343,70 +415,70 @@
     }
 }
 
-.product-details {
-    @include flex(center,center);
-    margin: 2rem 0;
-    min-height: 80vh;
-    .info-details {
-        border:0.1rem solid $color-border-form;
-        padding: 1.5rem;
-        max-width: 45rem;
-        @include flex(center,center);
-        gap: 2rem;
-        .img-details {
-            max-width: 15rem;
-            border-radius: 0.5rem;
-        }
-        .details-body {
-            max-width: 20rem;
-            .details-title {
-                font-size: 2rem;
-                color: $color-text-menu;
-            }
-            .details-price {
-                font-size: 1.5rem;
-                color: $color-border-nav;
-            }
-            .details-description {
-                font-size: 0.8rem;
-            }
-            .card-btn {
-                @include flex(center,center);
-                gap: 1rem;
-                margin-top: 1rem;
-                .details-order {
-                    @include flex(center,center);
-                    width: 6rem;
-                    font-size: 1.3rem;
-                    border: 0.1rem solid $color-border-form;
-                    font-weight:400;
-                    .btn-order {
-                        border: none;
-                        background: none;
-                        padding: 0 1rem;
-                    }
-                    .value-order {
-                        margin-bottom: 0;
-                    }
-                }
-                .boton {
-                    background-color: $color-text-menu;
-                    color: $color-text;
-                    padding: 0.3rem 1rem;
-                    border-radius: 1.1rem;
-                    font-size: 0.9rem;
-                    &:hover {
-                        background-color: $color-bg-boton;
-                        border:0.1rem solid $color-text-menu;
-                        color: $color-text-menu;
-                        background: none;
-                    }
-                }  
-            }
-        }
+// .product-details {
+//     @include flex(center,center);
+//     margin: 2rem 0;
+//     min-height: 80vh;
+//     .info-details {
+//         border:0.1rem solid $color-border-form;
+//         padding: 1.5rem;
+//         max-width: 45rem;
+//         @include flex(center,center);
+//         gap: 2rem;
+//         .img-details {
+//             max-width: 15rem;
+//             border-radius: 0.5rem;
+//         }
+//         .details-body {
+//             max-width: 20rem;
+//             .details-title {
+//                 font-size: 2rem;
+//                 color: $color-text-menu;
+//             }
+//             .details-price {
+//                 font-size: 1.5rem;
+//                 color: $color-border-nav;
+//             }
+//             .details-description {
+//                 font-size: 0.8rem;
+//             }
+//             .card-btn {
+//                 @include flex(center,center);
+//                 gap: 1rem;
+//                 margin-top: 1rem;
+//                 .details-order {
+//                     @include flex(center,center);
+//                     width: 6rem;
+//                     font-size: 1.3rem;
+//                     border: 0.1rem solid $color-border-form;
+//                     font-weight:400;
+//                     .btn-order {
+//                         border: none;
+//                         background: none;
+//                         padding: 0 1rem;
+//                     }
+//                     .value-order {
+//                         margin-bottom: 0;
+//                     }
+//                 }
+//                 .boton {
+//                     background-color: $color-text-menu;
+//                     color: $color-text;
+//                     padding: 0.3rem 1rem;
+//                     border-radius: 1.1rem;
+//                     font-size: 0.9rem;
+//                     &:hover {
+//                         background-color: $color-bg-boton;
+//                         border:0.1rem solid $color-text-menu;
+//                         color: $color-text-menu;
+//                         background: none;
+//                     }
+//                 }  
+//             }
+//         }
         
-    }
-}
+//     }
+// }
 
 /* ----- estilos pagina dashboard --------*/
 
@@ -499,10 +571,15 @@
 .clients {
     @include flex(flex-start,center);
     .table {
-       font-size: 1rem;
-       button {
-        font-size: 0.7rem;
-       }
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        td {
+            padding: 0 0.7rem;
+        }
+        button {
+            font-size: 0.6rem;
+        }
     }
 }
 
@@ -602,27 +679,26 @@
     }
 }
 
-
-
 @media (max-width: 767.98px) {
     .sec-header {
         justify-content: space-between;
         top: 0;
         min-width: 100%;
         position: fixed;
-        padding: 0.1rem;
+        padding: 0 1.5rem;
         z-index: 2;
         .nav-menu {
             display: block;
             position: fixed;
             text-align: center;
             padding: 0;
-            top: 3.8rem;
+            top: 3.35rem;
             gap: 0.8rem;
             width: 50%;
             min-height: 50vh;
             padding-top: 1rem;
             z-index: 2;
+            background-color: $color-drop-down-menu;
             li {
                 display: block;
                 padding: 0 1rem;
@@ -644,11 +720,15 @@
         .nav-logo img {
             max-width: 2rem;
         }
+        .company-name {
+            display: block;
+            font-size: 1.5rem;
+            color: $color-text-menu;
+        }
         .hamb{
             font-size: 2.1rem;
             background: none;
             color: $color-text-menu;
-            padding-right: 1rem;
             border: none;
             display: block;
             &:hover {
@@ -658,6 +738,24 @@
     }
     .principal {
           top: 12rem;
+    }
+    .sec-contact {
+        min-height: 60vh;
+        .sec-title {
+            h3{
+                font-size: 1.5rem;
+            }
+        }
+        .container {
+            form {
+                .data-input {
+                    label {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
     }
     .welcome {
         @include flex(space-between,center);
@@ -693,43 +791,6 @@
                     }
                 }
             }
-        }
-    }
-    .product-details {
-        .info-details {
-            max-width: 40rem;
-            gap: 1rem;
-            .img-details {
-                max-width: 18rem;
-            }
-            .details-body {
-                max-width: 15rem;
-                .details-title {
-                    font-size: 1.4rem;
-                }
-                .details-price {
-                    font-size: 1.5rem;
-                }
-                .details-description {
-                    font-size: 0.7rem;
-                }
-                .card-btn {
-                    .details-order {
-                        width: 5rem;
-                        font-size: 1.1rem;
-                    }
-                    .boton {
-                        font-size: 0.7rem;
-                        &:hover {
-                            background-color: $color-bg-boton;
-                            border:0.1rem solid $color-text-menu;
-                            color: $color-text-menu;
-                            background: none;
-                        }
-                    }  
-                }
-            }
-            
         }
     }
     .sec-info {
@@ -797,9 +858,6 @@
                 margin-top: 2rem;
             }
         }
-    }
-    .clients {
-        @include flex(flex-start,center);
     }
     
     .admin-products{
@@ -880,37 +938,10 @@
             }  
         }
     }
-    .product-details {
-        .info-details {
-            padding: 0.5rem;
-            max-width: 35rem;
-            flex-direction: column;
-            .img-details {
-                max-width: 18rem;
-            }
-            .details-body {
-                max-width: 18rem;
-                .details-title {
-                    font-size: 1.3rem;
-                }
-                .details-price {
-                    font-size: 1rem;
-                }
-                .details-description {
-                    font-size: 0.7rem;
-                }
-                .card-btn {
-                    .details-order {
-                        width: 5rem;
-                        font-size: 1.1rem;
-                    }
-                    .boton {
-                        font-size: 0.9rem;
-                    }  
-                }
-            }
-            
-        }
+    .sec-header {
+        .company-name {
+            font-size: 1rem;
+        }  
     }
     .form-pages {
         .container-form {
@@ -923,6 +954,9 @@
                 .form-msg {
                     font-size: 0.7rem;   
                 } 
+                .form-field {
+                    font-size: 0.8rem;
+                }
                 .btn-register {
                     .boton {
                         font-size: 0.8rem;
@@ -974,9 +1008,6 @@
             }
         }
     }
-    .clients {
-        @include flex(flex-start,center);
-    }
     .category {
         h3 {
             font-size: 1.8rem;
@@ -1017,9 +1048,12 @@
     }
     .clients {
         .table {
-           font-size: 0.7rem;
+            font-size: 0.6rem;
            button {
             font-size: 0.5rem;
+            i {
+                display: none;
+            }
            }
         }
     }
@@ -1060,6 +1094,32 @@
             }  
         }
     }
+    .sec-contact {
+        .sec-title {
+            h3{
+                font-size: 1.1rem;
+            }
+        }
+        .container {
+            form {
+                width: 90%;
+                label {
+                    span {
+                        font-size: 0.8rem;
+                    }
+                    input {
+                        width: 100%;
+                        @include display-form($color-text-menu, 0.7rem);
+                    }
+                    textarea {
+                        @include display-form($color-text-menu, 0.7rem);
+                    }
+                }
+               
+            }
+        }
+        
+    }
     .sec-info {
         .info { 
             gap: 2rem;
@@ -1090,36 +1150,6 @@
                     }
                 }
             }
-        }
-    }
-    .product-details {
-        .info-details {
-            max-width: 18rem;
-            padding: 0.8rem;
-            .img-details {
-                max-width: 16rem;
-            }
-            .details-body {
-                max-width: 16rem;
-                .details-title {
-                    font-size: 1.2rem;
-                }
-                .details-price {
-                    font-size: 1.3rem;
-                }
-                .details-description {
-                    font-size: 0.8rem;
-                }
-                .card-btn {
-                    .details-order {
-                        font-size: 1.3rem;
-                    }
-                    .boton {
-                        font-size: 0.7rem;
-                    }  
-                }
-            }
-            
         }
     }
     .sec-dashboard {
@@ -1200,13 +1230,5 @@
                 padding: 0.2rem 0.4rem;
                 font-size: 0.5rem;
             }  
-    }
-    .clients {
-        .table {
-           font-size: 0.7rem;
-           button {
-            font-size: 0.4rem;
-           }
-        }
     }
 }

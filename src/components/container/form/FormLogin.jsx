@@ -1,9 +1,11 @@
-import { Formik , Form , Field , ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import { Formik , Form , Field , ErrorMessage } from 'formik';
+import { useContext } from 'react'
+import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase/Credentials';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import toast from 'react-hot-toast';
+import { getUser } from '../../../firebase/UserController';
+import { AppContext } from '../../../auth/UserProvider';
+
+
 
 const loginSchema = Yup.object().shape(
     {
@@ -21,25 +23,54 @@ const loginSchema = Yup.object().shape(
  */
 
 export default function LoginFormik() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const { login } = useContext(AppContext);
     
     const initialCredentials = {
             email:'',
             password:''
-        }
+    } 
+
+    /**
+     * The getUserRol function gets information from the user and redirects based on the user's role (SuperAdmin => Dashboard; user => Home)
+     * @param {*} id 
+     */
+
+    const getUserRol =async (id)=> {
+        const user = await getUser(id)
         
-    const loginUser =(values)=> {
+        if(user.rol === 'SuperAdmin'){
+            navigate('/Dashboard');
+        }else {
+            navigate('/');
+        }
+    }
+
+
+    /**
+     * The LoginUser function is called to make the connection with firebase to authenticate with email and password
+     * @param { email, password } values 
+     */
+
+    const loginUser = async(values)=> {
         const { email, password } = values;
-    
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user)
-                navigate('/')
-            })
-            .catch((error) => {
-                toast('Correo o password invalido')
-        });
+
+        try {
+            const userCredential = await login(email, password);
+            getUserRol( userCredential.user.uid)
+        } catch (error) {
+            console.log(error.code);
+            switch (error.code){
+                case "auth/user-not-found":
+                    alert("Usuario no registrado");
+                    break;
+                case "auth/wrong-password":
+                    alert("Email o Contraseña incorrecta");
+                    break;
+                default:
+                    alert("Error, intentelo más tarde");
+            }
+        }
     }
 
     return (
@@ -59,7 +90,7 @@ export default function LoginFormik() {
                             <ErrorMessage name="email" component='div'  className='form-msg' />
                         </div>
                         <div className='form-group'>
-                            <Field id="password" className='form-field' type="password" name="password" placeholder="Introduzaca una contraseña" />
+                            <Field id="password" className='form-field' type="password" name="password" placeholder="Introduzca una contraseña" />
                             <label htmlFor="password" className='form-label' >Password</label>
                             <ErrorMessage name="password" component='div'  className='form-msg' />
                         </div>

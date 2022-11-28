@@ -1,38 +1,32 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { auth } from "../../firebase/Credentials";
-import { signOut } from "firebase/auth";
-import { useContext, useEffect, useState } from 'react';
-import { appContext } from '../../App';
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom"; 
-import { getUser } from "../../firebase/UserController";
+import { AppContext } from "../../auth/UserProvider";
 
 const Welcome = () => {
 
-  const { userSession } = useContext(appContext);
-  const [name, setName] = useState('')
+  const { userSession, logOutUSer } = useContext(AppContext);
   const navigate = useNavigate();
-
-
-  useEffect(() => {
-    if(userSession) {
-      getUser(userSession.uid)
-        .then(userData =>setName(userData.name) )
-    }
-  }, [userSession])
   
   return (
     <div className='welcome'>
         <div className='welcome-p'> 
           { 
             userSession ? 
-            <p className='welcome-saludo'>Hola, <span>{ name }</span> sigue disfrutando de nuestros Productos</p>
+            <div className='welcome-saludo'>Hola <span>{ userSession.name },</span>
+                { 
+                  userSession.rol === 'SuperAdmin'?
+                  <button className='boton' onClick={ () => navigate('/Dashboard') }>ir a Dashboard</button> 
+                  :
+                  '  sigue disfrutando de nuestros Productos' 
+                } 
+              </div>
             : 
             <p className='welcome-saludo'>Bienvenido, disfruta de nuestros Productos</p>
           } 
         </div>
 
         { userSession ? 
-        <button className='boton' onClick={ ()=> signOut(auth) }>
+        <button className='boton' onClick={ logOutUSer }>
           Salir
         </button>
         :

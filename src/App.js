@@ -9,6 +9,7 @@ import Menu from './pages/Menu';
 import Dashboard from './pages/Dashboard';
 import RequireAuth from './auth/RequireAuth';
 import { AppContext } from './auth/UserProvider';
+import Contact from './pages/Contact';
 
 
 
@@ -23,7 +24,7 @@ function App() {
               <Route path='/login' element={ <LoginPage /> } />
               <Route path='/registro' element={ <RegisterPage /> } />
               <Route path='/menu' element={ <Menu /> } />
-              <Route path='/menu' element={ <Menu /> } />
+              <Route path='/contact' element={ <Contact /> } />
               <Route path='/Dashboard' 
                 element= { 
                   <RequireAuth isAllowed={ !!userSession && userSession.rol === 'SuperAdmin' }> 

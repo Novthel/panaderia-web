@@ -2,7 +2,7 @@ import { Formik , Form , Field , ErrorMessage } from 'formik';
 import { useContext } from 'react'
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { getUser } from '../../../firebase/UserController';
+import { getUser } from '../../../firebase/userController';
 import { AppContext } from '../../../auth/UserProvider';
 
 
@@ -95,7 +95,9 @@ export default function LoginFormik() {
                             <ErrorMessage name="password" component='div'  className='form-msg' />
                         </div>
                         <div className='form-group py-3'>
-                            <button type="submit" className='btn btn-primary btn-sm rounded-pill'>Enviar</button>
+                            <div className='btn-submit'>
+                                <button type="submit" className='boton'>Iniciar</button>
+                            </div>
                         </div>
                         <div className='text-msg'>
                             <p className='text-p'>¿No tienes cuenta?</p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getListUser, removeUser } from '../../firebase/UserController';
+import { getListUser, removeUser } from '../../firebase/userController';
 
 const Clients = ({ editUser }) => {
 

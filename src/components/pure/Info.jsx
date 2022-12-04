@@ -9,8 +9,11 @@ const Info = () => {
             <div className='info'>
                 <div className='info-text'>
                     <h4>Sobre Nuestra Panadería</h4>
-                    <p>Somos una empresa con mas de 10 años de experiencia en la elaboracion de productos de Reposteria. Ofrecemos un sevicio de gran calidad, siempre teniendo en cuenta la satisfaccion de nuestros clientes. 
-                    Realizamos nuestras productos para que destaquen tanto por su sabor y calidad como por su buena presentacion al presentarselo a cliente.
+                    <p> 
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Aut tempore laborum expedita soluta illo. Debitis temporibus 
+                        dolores possimus magni. Praesentium officiis doloribus sunt culpa omnis. 
+                        Blanditiis modi numquam earum dolore? Quod, tempore.  
                     </p>   
                 </div>
                 <img className='info-img' src={ panaderia } alt='img-repostera'/>
@@ -19,8 +22,11 @@ const Info = () => {
                 <img className='info-img' src={ productos } alt='img-productos'/>
                 <div className='info-text'>
                     <h4>Sobre Nuestros Productos</h4>
-                    <p>Somos una empresa con mas de 10 años de experiencia en la elaboracion de productos de Reposteria. Ofrecemos un sevicio de gran calidad, siempre teniendo en cuenta la satisfaccion de nuestros clientes. 
-                    Realizamos nuestras productos para que destaquen tanto por su sabor y calidad como por su buena presentacion al presentarselo a cliente.
+                    <p> 
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Aut tempore laborum expedita soluta illo. Debitis temporibus 
+                        dolores possimus magni. Praesentium officiis doloribus sunt culpa omnis. 
+                        Blanditiis modi numquam earum dolore? Quod, tempore.  
                     </p>
                 </div>
             </div>

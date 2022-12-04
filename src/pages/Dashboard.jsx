@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import { signOut } from 'firebase/auth';
-// import { auth } from '../firebase/Credentials';
 import logo from '../assets/media/img/logo-panaderia.png';
 import AdminProducts from '../components/container/AdminProducts';
 import AdminClients from '../components/container/AdminClients';

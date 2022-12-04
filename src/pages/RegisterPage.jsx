@@ -1,4 +1,3 @@
-import React from 'react';
 import FormRegister from '../components/container/form/FormRegister';
 import Header from '../components/container/Header';
 import Welcome from '../components/container/Welcome';

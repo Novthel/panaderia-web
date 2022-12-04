@@ -1,5 +1,4 @@
-import React from 'react';
-import FormContact from '../components/container/form/FormContact';
+import FormContactEmail from '../components/container/form/FormContactEmail';
 import Header from '../components/container/Header';
 import Principal from '../components/container/principal';
 import Welcome from '../components/container/Welcome';
@@ -11,7 +10,7 @@ const Home = () => {
                 <Header />  
                 <Welcome />
                 <Principal />
-                <FormContact />
+                <FormContactEmail />
                 <Footer />
             </>
     );

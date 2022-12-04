@@ -14,3 +14,11 @@
    font-size: $font-size;
 }
 
+@mixin background-sec-form(){
+   background-color: #ffffff;
+   opacity: 0.8;
+   background-image:  radial-gradient(#a9985e 0.8px, transparent 0.8px), radial-gradient(#a9985e 0.8px, #ffffff 0.8px);
+   background-size: 32px 32px;
+   background-position: 0 0,16px 16px;
+   
+}

@@ -86,7 +86,7 @@
                 height: 85vh;
                 .video {
                     width: 100%;
-                    filter: brightness(0.5);
+                    filter: brightness(0.8);
                     height: 100%;                   
                     object-fit: cover;
                     object-position: center center;
@@ -107,6 +107,7 @@
                         font-size: 1.5rem;
                     }
                 }
+               
                 .carousel-caption {
                     @include flex(center,center);
                     flex-direction: column;
@@ -145,9 +146,11 @@
     color: $color-text-menu;
     flex-direction: column;
     padding: 2rem;
+    background-color: $color-border-form;
     .sec-title {
         h3{
             font-size: 2rem;
+            padding: 1rem;
         }
     }
    
@@ -157,10 +160,11 @@
             width: 70%;
             display: flex;
             flex-direction: column;
-            padding: 1.5rem;
+            padding: 3rem 1.5rem;
             border: 1px solid $color-border-form;
             gap: 1.5rem;
-
+            background-color: $color-bg-principal;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             .data-input {
                 display: flex;
                 flex-wrap: wrap;
@@ -265,7 +269,9 @@
 
 .form-pages {
     @include flex(center,center);
-    margin: 3rem 0;
+    @include background-sec-form();
+    padding: 3rem 0;
+   
 }
 .container-form {
     display: flex;
@@ -273,11 +279,14 @@
     width: 25rem;
     padding: 0 3rem;
     border: 1px solid $color-border-form;
+    background-color: $color-bg-principal;
     border-radius: 0.5rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    
     legend {
         padding: 2rem;
         text-align: center;
+        color: $color-btn;
     }
     .form-group {
         display: flex;
@@ -285,7 +294,7 @@
         margin-bottom: 1rem;
         .form-field {
             border: none;
-            border-bottom: 1px solid $color-border-form;
+            border-bottom: 1px solid $color-btn;
             outline: none;
         }
         .form-label {
@@ -296,7 +305,7 @@
             color: $color-msg-error;
             font-size: 0.8rem;   
         } 
-        .btn-register {
+        .btn-submit {
             @include flex(center,center);
             .boton {
                 background-color: $color-bg-boton;
@@ -415,71 +424,6 @@
     }
 }
 
-// .product-details {
-//     @include flex(center,center);
-//     margin: 2rem 0;
-//     min-height: 80vh;
-//     .info-details {
-//         border:0.1rem solid $color-border-form;
-//         padding: 1.5rem;
-//         max-width: 45rem;
-//         @include flex(center,center);
-//         gap: 2rem;
-//         .img-details {
-//             max-width: 15rem;
-//             border-radius: 0.5rem;
-//         }
-//         .details-body {
-//             max-width: 20rem;
-//             .details-title {
-//                 font-size: 2rem;
-//                 color: $color-text-menu;
-//             }
-//             .details-price {
-//                 font-size: 1.5rem;
-//                 color: $color-border-nav;
-//             }
-//             .details-description {
-//                 font-size: 0.8rem;
-//             }
-//             .card-btn {
-//                 @include flex(center,center);
-//                 gap: 1rem;
-//                 margin-top: 1rem;
-//                 .details-order {
-//                     @include flex(center,center);
-//                     width: 6rem;
-//                     font-size: 1.3rem;
-//                     border: 0.1rem solid $color-border-form;
-//                     font-weight:400;
-//                     .btn-order {
-//                         border: none;
-//                         background: none;
-//                         padding: 0 1rem;
-//                     }
-//                     .value-order {
-//                         margin-bottom: 0;
-//                     }
-//                 }
-//                 .boton {
-//                     background-color: $color-text-menu;
-//                     color: $color-text;
-//                     padding: 0.3rem 1rem;
-//                     border-radius: 1.1rem;
-//                     font-size: 0.9rem;
-//                     &:hover {
-//                         background-color: $color-bg-boton;
-//                         border:0.1rem solid $color-text-menu;
-//                         color: $color-text-menu;
-//                         background: none;
-//                     }
-//                 }  
-//             }
-//         }
-        
-//     }
-// }
-
 /* ----- estilos pagina dashboard --------*/
 
 .sec-dashboard {
@@ -562,6 +506,7 @@
             @include flex(center,flex-start);
             padding: 2rem;
             margin-left: 230px;
+            
         }
     }
 
@@ -646,7 +591,6 @@
         }
         .container-form-product {
             @include flex(center,center);
-            
         }
     } 
 }
@@ -665,7 +609,7 @@
 
 .form-product {
     @include flex(center,none);
-    max-width: 30rem;
+    width: 20rem;
     flex-direction: column;
     gap: 0.3rem;
     legend {
@@ -1048,7 +992,7 @@
     }
     .clients {
         .table {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
            button {
             font-size: 0.5rem;
             i {
@@ -1208,9 +1152,21 @@
         } 
     }
     .form-product {
-        max-width: 18rem;
+        width: 16rem;
         legend {
-            font-size: 1.1rem;
+            font-size: 1rem;
+        }
+        label {
+            font-size: 0.7rem;
+        }
+        input {
+            font-size: 0.7rem;
+        }
+        select {
+            font-size: 0.7rem;
+        }
+        textarea {
+            font-size: 0.7rem;
         }
         .containerBtn-form {
             padding: 0.3rem;

@@ -2,9 +2,8 @@ import { useContext } from 'react';
 import { Formik , Form , Field , ErrorMessage } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { newUser } from '../../../firebase/UserController';
+import { newUser } from '../../../firebase/userController';
 import { AppContext } from '../../../auth/UserProvider';
-
 
 
 const registerSchema = Yup.object().shape(
@@ -23,7 +22,6 @@ const registerSchema = Yup.object().shape(
                 .required('<i> Password is required.')
     }
 )
-
 
 /**
  * 
@@ -111,7 +109,7 @@ const FormRegister = () => {
                             </div> 
                             
                             <div className='form-group py-3'>
-                                <div className='btn-register'>
+                                <div className='btn-submit'>
                                     <button type="submit" className='boton'>Guardar</button>
                                 </div>
                             </div>

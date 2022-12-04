@@ -4,9 +4,14 @@ import { getDoc, doc, setDoc, getDocs, collection, deleteDoc } from 'firebase/fi
 
 export const newUser = (user, values)=> {
     
+  try {
     const uid = user;
     const docRef = doc(db, `users/${uid}`);
     setDoc(docRef, values );
+  } catch (error) {
+    console.log(error)
+  }
+   
 }
 
 

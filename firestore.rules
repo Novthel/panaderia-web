@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /Products/{product}{
+      allow read: if true;
+      allow create, delete, update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.rol == "SuperAdmin"
+    }
+    match /users/{user}{
+      allow read: if true;
+      allow create, delete, update: if request.auth.uid == user;
+      allow create, delete, update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.rol == "SuperAdmin"
+    }
+  }
+}
